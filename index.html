@@ -1,71 +1,640 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- link de boostrap -->
+
+    <!-- Incluye Bootstrap CSS y JS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <!-- Owl Carousel CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Scripts -->
+    <script src="indexJS.js"></script>
+
+    <!-- Carga de pag -->
+    <script src="./cargaJS.js"></script>
+  </head>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <body>
+    <header>
+      <!-- navbar  cabecera-->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <!-- <img src="logo.png" alt="" class="colored-img navbar-brand"> -->
+          <a class="navbar-brand" href="#">
+            <img
+              src="img/logo/logo.png"
+              alt="Bootstrap"
+              width="90"
+              height="65"
+              class="colored-img"
+          /></a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >NOSOTROS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">PRODUCTOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">CONTACTANOS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div>
+        <!-- slider -->
+        <div class="contenedorSlider">
+          <div
+            id="carouselExampleInterval"
+            class="carousel slide carousel-touch"
+            data-bs-ride="carousel"
+            data-carousel-touch="true"
+            data-carousel-to="true"
+          >
+            <ol class="carousel-indicators d-none">
+              <!-- Indicadores -->
+              <li
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide-to="0"
+                class="active"
+              ></li>
+              <li
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide-to="1"
+              ></li>
+              <li
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide-to="2"
+              ></li>
+            </ol>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="1200">
+                <img
+                  src="img/navbar/navbar-im1.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="1200">
+                <img
+                  src="img/navbar/navbar-im2.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="1200">
+                <img
+                  src="img/navbar/navbar-im3.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <!-- Botones de control omitidos -->
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="container mb-2">
+          <div class="row">
+            <!-- En vista móvil, las imágenes se muestran de forma horizontal -->
+            <div class="col-12 d-md-none estiloImgCard">
+              <div class="d-flex flex-wrap justify-content-between lol mb-5">
+                <div class="card mb-4">
+                  <img src="im1.webp" class="card-img-top" alt="..." />
+                  <div class="overlay">
+                    <img class="Stilo-overlay-img" src="log1.png" alt="" />
+                    <button type="button" class="btn btn-custom">MORE</button>
+                  </div>
+                </div>
+                <div class="card mb-4">
+                  <img src="im2.png" class="card-img-top" alt="..." />
+                  <div class="overlay">
+                    <img
+                      class="Stilo-overlay-img"
+                      src="img/marcaLogos/log2.png"
+                      alt=""
+                    />
+                    <button type="button" class="btn btn-custom">MORE</button>
+                  </div>
+                </div>
+                <div class="card mb-4">
+                  <img
+                    src="img/marcas/im3.webp"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="overlay">
+                    <img class="Stilo-overlay-img" src="log3.png" alt="" />
+                    <button type="button" class="btn btn-custom">MORE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- En vista de tablet y computadora, las imágenes se muestran en tres columnas -->
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card mb-4">
+                <img src="im1.webp" class="card-img-top" alt="..." />
+                <div class="overlay">
+                  <img class="Stilo-overlay-img" src="log2.png" alt="" />
+                  <button type="button" class="btn btn-custom">MORE</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card mb-4">
+                <img src="im2.png" class="card-img-top" alt="..." />
+                <div class="overlay">
+                  <img class="Stilo-overlay-img" src="log1.png" alt="" />
+                  <button type="button" class="btn btn-custom">MORE</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card mb-4">
+                <img src="im3.webp" class="card-img-top" alt="..." />
+                <div class="overlay">
+                  <img class="Stilo-overlay-img" src="log3.png" alt="" />
+                  <button type="button" class="btn btn-custom">MORE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- img -->
+        <div class="Contenedor-img">
+          <div class="card text-bg-dark">
+            <img
+              src="img/publicidad/img1-1.jpg"
+              class="img-fluid"
+              style="height: 300px"
+              alt="Imagen"
+            />
+            <div class="card-img-overlay">
+              <h5 class="card-title">ALPHA</h5>
+              <p class="card-text">Xiaomi Mi 10 Mix Alpha</p>
+              <button type="button" class="btn btn-outline-light">
+                SHOP NOW
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- text -->
+        <div class="text-center mt-5 mb-5 estilo">
+          <p class="h2">Recien Añadidos</p>
+        </div>
+
+        <!-- slider 4 -->
+        <div class="container-fluid">
+          <div id="myCarousel" class="owl-carousel owl-theme my-3">
+            <div class="card shadow my-3">
+              <div class="hot-label">HOT</div>
+
+              <img
+                src="img/celulares/cel-huawei1.jpg"
+                class="card-img-top"
+                height="250"
+                alt="Image 1"
+              />
+
+              <div class="card-body text-center">
+                <h5 class="card-title">NAME PHONE</h5>
+                <p class="card-text">$ 150.00</p>
+              </div>
+              <div class="card-icons">
+                <div class="circle-icon">
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-regular fa-comment"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow my-3">
+              <div class="new-label">NEW</div>
+
+              <img
+                src="img/celulares/cel-huawei2.png"
+                class="card-img-top"
+                height="250"
+                alt="Image 1"
+              />
+
+              <div class="card-body text-center">
+                <h5 class="card-title">NAME PHONE</h5>
+                <p class="card-text">$ 150.00</p>
+              </div>
+              <div class="card-icons">
+                <div class="circle-icon">
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-regular fa-comment"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow my-3">
+              <div class="sale-label">SALE</div>
+
+              <img
+                src="img/celulares/cel-huawei3.png"
+                class="card-img-top"
+                height="250"
+                alt="Image 1"
+              />
+
+              <div class="card-body text-center">
+                <h5 class="card-title">NAME PHONE</h5>
+                <p class="card-text">$ 150.00</p>
+              </div>
+              <div class="card-icons">
+                <div class="circle-icon">
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-regular fa-comment"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow my-3">
+              <div class="gift-label">GIFT</div>
+
+              <img
+                src="img/celulares/cel-huawei4.png"
+                class="card-img-top"
+                height="250"
+                alt="Image 1"
+              />
+
+              <div class="card-body text-center">
+                <h5 class="card-title">NAME PHONE</h5>
+                <p class="card-text">$ 150.00</p>
+              </div>
+              <div class="card-icons">
+                <div class="circle-icon">
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-regular fa-comment"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow my-3">
+              <div class="gift-label">GIFT</div>
+
+              <img
+                src="img/celulares/cel-huawei5.png"
+                class="card-img-top"
+                height="250"
+                alt="Image 1"
+              />
+
+              <div class="card-body text-center">
+                <h5 class="card-title">NAME PHONE</h5>
+                <p class="card-text">$ 150.00</p>
+              </div>
+              <div class="card-icons">
+                <div class="circle-icon">
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-regular fa-comment"></i>
+                </div>
+                <div class="circle-icon">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Add more cards as needed -->
+          </div>
+        </div>
+
+        <!-- icon redic -->
+        <div class="containerIcon">
+          <div class="row mt-5">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <div class="card card-hover">
+                <div class="card-body text-center">
+                  <i class="fa-solid fa-truck fa-2xl mb-4"></i>
+                  <h4 class="card-title">Free Delivery And Return</h4>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card card-hover">
+                <div class="card-body text-center">
+                  <i class="fa-solid fa-credit-card fa-2xl mb-4"></i>
+                  <h4 class="card-title">Payment security</h4>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- text -->
+        <div class="text-center mt-5 mb-5 estilo">
+          <p class="h2">PRODUCTOS POPULARES</p>
+        </div>
+
+        <!-- popular products -->
+        <div style="margin-bottom: 50%" hidden>
+          <div class="containerProductsLeft">
+            <img src="lol123.jpg" class="card-img-top mb-5" alt="..." />
+          </div>
+
+          <!-- <div class="containerProducts mb-5">
+            <div id="carouselExampleControls1" class="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card">
+                    <div class="img-wrapper">
+                      <img src="2.jpg" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper">
+                      <img src="1.jpg" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper">
+                      <img src="img3.jpg" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls1"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls1"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div> -->
+
+          <!-- <div class="containerProducts mb-5">
+            <div id="carouselExampleControls2" class="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card">
+                    <div class="img-wrapper">
+                      <img src="2.jpg" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper">
+                      <img src="1.jpg" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper">
+                      <img src="img3.jpg" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls2"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls2"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <!-- <div id="Recarga_seccion_home"></div> -->
+
+    <!-- footer -->
+    <footer class="bg-dark text-white">
+      <div class="container py-5 text-">
+        <div class="row">
+          <div class="col-md-2">
+            <h5>Contactanos</h5>
+            <p>Teléfono: (123) 456-789</p>
+            <p>Correo: profePasenos@utp.edu.pe</p>
+          </div>
+          <div class="col-md-3">
+            <h5>Preguntas Frecuentes</h5>
+            <!-- Agrega enlaces a tus preguntas frecuentes -->
+
+            <p><a href="">Pregunta 1</a></p>
+            <p><a href="">Pregunta 2</a></p>
+            <p><a href="">Pregunta 3</a></p>
+          </div>
+          <div class="col-md-2">
+            <h5>
+              Informacion <br />
+              de la empresa
+            </h5>
+            <p><a href="">Acerca de nosotros</a></p>
+            <p><a href="">Sostenibilidad</a></p>
+            <p><a href="">Trabajo</a></p>
+          </div>
+          <div class="col-md-3">
+            <h5>Sugerencias</h5>
+            <a href="#">formulario de reclamaciones</a>
+
+            <a href="#">
+              <img
+                src="libro de reclamaciones.avif"
+                class="w-50 mt-4"
+                alt="Libro de Reclamaciones"
+              />
+            </a>
+          </div>
+          <div class="col-md-2">
+            <h5>Síguenos</h5>
+            <!-- Agrega iconos de redes sociales -->
+
+            <p>
+              <a href="#"><i class="fab fa-facebook"></i> Fcebook</a>
+            </p>
+
+            <p>
+              <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </p>
+
+            <p>
+              <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </p>
+
+            <p>
+              <a href="#"><i class="fab fa-tiktok"></i> Tiktok</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark py-3">
+        <div class="container">
+          <p class="text-center text-white">
+            &copy; 2023 Gamers Perú SAC, Código Postal Lima 18.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <!-- carga de pag -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-    <script src="./cargaJS.js"></script>
-  </head>
 
-  <style>
-    * {
-      margin: 0;
-    }
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    body{
-      background: linear-gradient(150deg, rgba(255,251,249,1) 0%, rgba(143,155,161,1) 81%, rgba(143,155,161,1) 100%);
-    }
-
-    .footer {
-      background-color: #f8f9fa;
-      padding: 20px 0;
-      text-align: center;
-    }
-  </style>
-
-  <body>
-    <!-- navbar  cabecera-->
-    <nav class="navbar bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand text-white">Navbar</a>
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-
-    <div id="Recarga_seccion_home"></div>
-
-    
-
-    <!-- footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>© 2023 Mi Sitio Web. Todos los derechos reservados.</p>
-        <a href="#" id="P1">Libro de reclamaciones</a>
-        <a href="#" id="P2">Sugerencia</a>
-      </div>
-    </footer>
+    <script>
+      $(document).ready(function () {
+        $("#myCarousel").owlCarousel({
+          items: 4, // Number of cards shown in each slide
+          loop: true, // Continuously loop the carousel
+          margin: 50, // Space between cards
+          nav: true, // Show navigation buttons
+          navText: [
+            "<i class='fas fa-chevron-left' hidden></i>",
+            "<i class='fas fa-chevron-right' hidden></i>",
+          ], // Custom navigation icons
+          responsive: {
+            0: {
+              items: 1, // Number of cards shown in the carousel for smaller screens
+            },
+            768: {
+              items: 2, // Number of cards shown in the carousel for medium screens
+            },
+            992: {
+              items: 4, // Number of cards shown in the carousel for large screens
+            },
+          },
+        });
+      });
+    </script>
   </body>
-  <script src="indexJS.js"></script>
 </html>
