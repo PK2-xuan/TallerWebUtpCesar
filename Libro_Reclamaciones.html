@@ -1,157 +1,225 @@
+<style>
+  .contenedor-libroReclamaciones {
+    margin-top: 7rem;
+  }
+</style>
 
-    <!-- form complaints book -->
-    <div class="container mt-5 mb-5">
-        <div class="col-md-8 mx-auto mb-5"><h2>Libro de Reclamaciones</h2></div>
-  
-        <form id="Formulario_Reclamaciones" class="form-row">
-          <div class="row col-md-6 mx-auto mb-2">
-            <div class="col">
-              <label for="nombre">Nombre:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombre2"
-                placeholder="Ingresa tu nombre"
-                required
-              />
-            </div>
-  
-            <div class="col">
-              <label for="apellido">Apellido:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="apellido2"
-                placeholder="Ingresa tu nombre"
-                required
-              />
-            </div>
-          </div>
-  
-          <div class="row col-md-6 mx-auto mb-2">
-            <div class="col">
-              <label for="direcion">Direcion:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="direction"
-                placeholder="Ingresa tu nombre"
-                required
-              />
-            </div>
-  
-            <div class="col">
-              <label for="dni">Dni:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="dni"
-                placeholder="Ingresa tu nombre"
-                required
-              />
-            </div>
-          </div>
-  
-          <div class="row col-md-6 mx-auto mb-2">
-            <div class="col">
-              <label for="email">Correo Electrónico:</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email2"
-                placeholder="Ingresa tu correo electrónico"
-                required
-              />
-            </div>
-  
-            <div class="col">
-              <label for="telefono">Teléfono:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="telefono2"
-                placeholder="Ingrese su teléfono"
-                maxlength="9"
-                required
-              />
-            </div>
-          </div>
-  
-          <div class="row col-md-6 mx-auto mb-2">
-            <div class="col">
-              <label for="asunto2">Asunto:</label>
-              <select class="form-control" id="asunto2">
-                <option value="">Seleccione una opción</option>
-                <option value="queja2">Queja</option>
-                <option value="reclamo2">Reclamo</option>
-              </select>
-            </div>
-  
-            <div class="col">
-              <label for="pais2">País:</label>
-              <select class="form-control" id="pais2">
-                <option value="">Seleccione su país</option>
-                <option value="queja2">Perú</option>
-              </select>
-            </div>
-          </div>
-  
-          <div class="col-md-5 mx-auto">
-            <div class="form-group mb-3">
-              <label for="mensaje">Mensaje:</label>
-              <textarea
-                class="form-control"
-                id="mensaje2"
-                rows="4"
-                placeholder="Escribe tu mensaje aquí"
-                required
-              ></textarea>
-            </div>
-  
-            <div class="form-group mb-3">
-              <label for="mensaje">Detalle del producto:</label>
-              <textarea
-                class="form-control"
-                id="detalleProducto"
-                rows="4"
-                placeholder="Escribe tu mensaje aquí"
-                required
-              ></textarea>
-            </div>
-  
-            <div class="form-group mb-3">
-              <label for="idProducto">Numero del producto:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="idProducto"
-                placeholder="Ingrese el numero del producto"
-                required
-              />
-            </div>
-  
-            <div class="form-group mb-3">
-              <label for="idProducto">Adjuntar documento:</label>
-              <input
-                type="file"
-                class="form-control"
-                id="DocProducto"
-                placeholder="Adjunte las fotos"
-                required
-              />
-            </div>
-          </div>
-  
-          <div class="col-md-12 text-center">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              id="enviarReclamo"
-              disabled
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
+<!-- form complaints book -->
+<div class="container mb-5 contenedor-libroReclamaciones">
+  <div class="col-md-8 mx-auto mb-5"><h2>Libro de Reclamaciones</h2></div>
+
+  <form id="Formulario_Reclamaciones" class="form-row">
+    <div class="row col-md-6 mx-auto mb-2">
+      <div class="col">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre2"
+          placeholder="Ingresa tu nombre"
+          required
+        />
       </div>
-    
+
+      <div class="col">
+        <label for="apellido">Apellido:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellido2"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row col-md-6 mx-auto mb-2">
+      <div class="col">
+        <label for="direcion">Direcion:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="direction"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+      </div>
+
+      <div class="col">
+        <label for="dni">Dni:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="dni"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row col-md-6 mx-auto mb-2">
+      <div class="col">
+        <label for="email">Correo Electrónico:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email2"
+          placeholder="Ingresa tu correo electrónico"
+          required
+        />
+      </div>
+
+      <div class="col">
+        <label for="telefono">Teléfono:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="telefono2"
+          placeholder="Ingrese su teléfono"
+          maxlength="9"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row col-md-6 mx-auto mb-2">
+      <div class="col">
+        <label for="asunto2">Asunto:</label>
+        <select class="form-control" id="asunto2">
+          <option value="">Seleccione una opción</option>
+          <option value="queja2">Queja</option>
+          <option value="reclamo2">Reclamo</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label for="pais2">País:</label>
+        <select class="form-control" id="pais2">
+          <option value="">Seleccione su país</option>
+          <option value="queja2">Perú</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-5 mx-auto">
+      <div class="form-group mb-3">
+        <label for="mensaje">Mensaje:</label>
+        <textarea
+          class="form-control"
+          id="mensaje2"
+          rows="4"
+          placeholder="Escribe tu mensaje aquí"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="mensaje">Detalle del producto:</label>
+        <textarea
+          class="form-control"
+          id="detalleProducto"
+          rows="4"
+          placeholder="Escribe tu mensaje aquí"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="idProducto">Numero del producto:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="idProducto"
+          placeholder="Ingrese el numero del producto"
+          required
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="idProducto">Adjuntar documento:</label>
+        <input
+          type="file"
+          class="form-control"
+          id="DocProducto"
+          placeholder="Adjunte las fotos"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-primary" id="enviarReclamo" disabled>
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
+
+<script>
+  // Obtén referencias a los elementos del formulario
+  const nombreInput = document.getElementById("nombre2");
+  const apellidoInput = document.getElementById("apellido2");
+  const direccionInput = document.getElementById("direction");
+  const dniInput = document.getElementById("dni");
+  const emailInput = document.getElementById("email2");
+  const telefonoInput = document.getElementById("telefono2");
+  const asuntoSelect = document.getElementById("asunto2");
+  const paisSelect = document.getElementById("pais2");
+  const mensajeTextarea = document.getElementById("mensaje2");
+  const detalleProductoTextarea = document.getElementById("detalleProducto");
+  const idProductoInput = document.getElementById("idProducto");
+  const docProductoInput = document.getElementById("DocProducto");
+  const enviarButton = document.getElementById("enviarReclamo");
+
+  // Función para verificar si todos los campos están completos
+  function validarFormulario() {
+    const camposCompletos =
+      nombreInput.value &&
+      apellidoInput.value &&
+      direccionInput.value &&
+      dniInput.value &&
+      emailInput.value &&
+      telefonoInput.value &&
+      asuntoSelect.value &&
+      paisSelect.value &&
+      mensajeTextarea.value &&
+      detalleProductoTextarea.value &&
+      idProductoInput.value &&
+      docProductoInput.value;
+
+    // Habilitar o deshabilitar el botón según si los campos están completos
+    enviarButton.disabled = !camposCompletos;
+  }
+
+  // Agrega un evento de cambio y entrada a cada campo para verificar continuamente
+  nombreInput.addEventListener("input", validarFormulario);
+  apellidoInput.addEventListener("input", validarFormulario);
+  direccionInput.addEventListener("input", validarFormulario);
+  dniInput.addEventListener("input", validarFormulario);
+  emailInput.addEventListener("input", validarFormulario);
+  telefonoInput.addEventListener("input", validarFormulario);
+  asuntoSelect.addEventListener("change", validarFormulario);
+  paisSelect.addEventListener("change", validarFormulario);
+  mensajeTextarea.addEventListener("input", validarFormulario);
+  detalleProductoTextarea.addEventListener("input", validarFormulario);
+  idProductoInput.addEventListener("input", validarFormulario);
+  docProductoInput.addEventListener("input", validarFormulario);
+
+  const formularioReclamaciones = document.getElementById(
+    "Formulario_Reclamaciones"
+  );
+
+  // Agrega un controlador de eventos para el evento submit del formulario
+  formularioReclamaciones.addEventListener("submit", function (event) {
+    // Evita que el formulario se envíe normalmente
+    event.preventDefault();
+
+    // Muestra una alerta de "enviado" cuando se envía el formulario
+    alert("Mensaje demo enviado con éxito");
+
+    // Restablece el formulario si es necesario
+    formularioReclamaciones.reset();
+
+    // También puedes realizar una acción adicional aquí, como enviar los datos a través de AJAX a un servidor.
+  });
+</script>

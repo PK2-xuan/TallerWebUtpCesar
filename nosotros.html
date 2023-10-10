@@ -1,0 +1,379 @@
+<style>
+  .estilos_nosotros {
+    margin-top: 7rem;
+  }
+
+  .barra-de-color {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+  }
+
+  .container-nosotros-img {
+    width: 80%;
+    height: 100%;
+  }
+  .contenedor-nosotros-text {
+    font-family: "Arial", sans-serif;
+    font-size: 70px;
+    color: #333;
+    padding-top: 5rem;
+  }
+
+  .card-container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .custom-card-header {
+    font-size: 36px;
+    font-weight: lighter;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
+  .custom-iframe {
+    height: 500px;
+  }
+
+  .card-text-meta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.2s ease-in-out;
+  }
+
+  .card-container:hover .card-text-meta {
+    max-height: 200px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    .card-container:hover .card-text-meta {
+      max-height: 500px;
+    }
+  }
+
+  /* para que aparezca las palabras co0n scroll */
+  .animado {
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  .mostrarArriba {
+    animation: mostrarArriba 1s;
+  }
+
+  @keyframes mostrarArriba {
+    /*para que se muestre bajando*/
+    0% {
+      transform: translateY(-60px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .efecto-contenedor-nosotros .efecto-card {
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .efecto-contenedor-nosotros .efecto-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .efecto-contenedor-nosotros .efecto-card .btn {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .efecto-contenedor-nosotros .efecto-card:hover .btn {
+    opacity: 1;
+    background: #060606cc;
+    color: white;
+  }
+
+  .efecto-contenedor-nosotros .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+</style>
+
+<div class="container estilos_nosotros shadow-lg" style="padding: 0 5%">
+  <div class="text-center">
+    <h2 class="contenedor-nosotros-text">Gamers Moviles</h2>
+    <h5
+      style="
+        font-family: 'Helvetica', sans-serif;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 5rem;
+      "
+    >
+      "Tu Destino para Xiaomi y Huawei en Línea"
+    </h5>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7 mt-5">
+        <h1 style="font-family: 'Georgia', serif; font-size: 35px; color: #222">
+          ¿Qué es GamersMoviles?
+        </h1>
+        <p
+          style="
+            font-family: 'Verdana', sans-serif;
+            font-size: 20px;
+            color: #444;
+          "
+          class="pb-5"
+        >
+          Somos una tienda virtual que ofrece productos de alta calidad, con las
+          marcas líderes en el mercado nacional e internacional. Nuestros
+          catálogos van desde los teléfonos móviles más populares en el mercado
+          hasta los dispositivos de gama alta para gamers. Ofrecemos variedad,
+          exclusividad y la última tecnología en nuestros productos.
+        </p>
+        <div class="barra-de-color mb-3"></div>
+      </div>
+
+      <div class="col-md-5 d-flex flex-column align-items-end">
+        <img
+          class="container-nosotros-img"
+          src="img/img-nosotros/img-nosotros-1.jpg"
+          alt=""
+          style="border-radius: 49%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7 order-md-2 mt-5">
+        <h1 style="font-family: 'Georgia', serif; font-size: 35px; color: #222">
+          Nuestra Mision como empresa
+        </h1>
+        <p
+          style="
+            font-family: 'Verdana', sans-serif;
+            font-size: 20px;
+            color: #444;
+          "
+          class="pb-5"
+        >
+          En GamersMobile, nuestra misión es ofrecer la mejor experiencia de
+          compra en línea para productos de Xiaomi, Honor y Huawei. Nos
+          enfocamos en dispositivos de alta calidad y un excelente servicio al
+          cliente.
+        </p>
+        <div class="barra-de-color mb-3"></div>
+      </div>
+
+      <div class="col-md-5 order-md-1 d-flex flex-column align-items-end">
+        <img
+          class="container-nosotros-img"
+          src="img/img-nosotros/javier-martinez-hUD0PUczwJQ-unsplash.jpg"
+          alt=""
+          style="border-radius: 49%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7 mt-5">
+        <h1 style="font-family: 'Georgia', serif; font-size: 35px; color: #222">
+          Nuestra Vision como empresa
+        </h1>
+        <p
+          style="
+            font-family: 'Verdana', sans-serif;
+            font-size: 20px;
+            color: #444;
+          "
+          class="pb-5"
+        >
+          En GamersMobile, queremos ser los mejores en la venta en línea de
+          productos Xiaomi, Honor y Huawei. Buscamos constantemente mejorar y
+          ofrecer una amplia gama de productos emocionantes.
+        </p>
+        <div class="barra-de-color mb-3"></div>
+      </div>
+
+      <div class="col-md-5 d-flex flex-column align-items-end">
+        <img
+          class="container-nosotros-img"
+          src="img/img-nosotros/lucas-ortiz-RMSLfydEKSI-unsplash.jpg"
+          alt=""
+          style="border-radius: 49%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container border mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-container">
+          <div class="card-header custom-card-header">Nuestra Meta</div>
+          <div class="card-text card-text-meta" style="font-size: 25px">
+            <p>
+              "Nuestra meta es ser reconocidos por nuestra confiabilidad,
+              accesibilidad y compromiso con la satisfacción del cliente."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 pb-5">
+    <div class="row">
+      <div class="col-md-4 align-self-center">
+        <h2>Ubícanos</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
+          atque dolorem libero iure perspiciatis aliquam recusandae aut quod
+          pariatur aspernatur id quaerat alias ut, velit explicabo laborum
+          debitis voluptatem perferendis!
+        </p>
+        <address>
+          <strong> Gamers Moviles </strong><br />
+          123 AV. Arequipo ya tu sabe<br />
+          Lima, Perú<br />
+          18
+        </address>
+        <p>Puedes contactarnos en:</p>
+        <ul>
+          <li>Teléfono: (123) 456-7890</li>
+          <li>Correo Electrónico: apruebenos_profe@utp.edu.pe</li>
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div class="embed-responsive custom-iframe-container">
+          <iframe
+            class="embed-responsive-item w-100 custom-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62413.033808400876!2d-77.02410155348736!3d-12.124833508086994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b875394f9e21%3A0x2fc1431693d2759!2sSantiago%20de%20Surco!5e0!3m2!1ses!2spe!4v1696316470655!5m2!1ses!2spe"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5 mb-5 estilo">
+    <p class="h2" style="font-weight: bold">SOSTENEBILIDAD</p>
+  </div>
+
+  <div class="container border-0 mb-5">
+    <div class="card mb-5 animado">
+      <div class="card-header">Reciclaje de Dispositivos Electrónicos</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>
+            Ofrecemos un programa de reciclaje de teléfonos móviles usados. Los
+            clientes pueden entregar sus dispositivos antiguos en la tienda para
+            su reciclaje adecuado o reutilización.
+          </p>
+          <footer class="blockquote-footer">
+            Xuancito 7u7. <cite title="Source Title">Gerente</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="card mb-5 animado">
+      <div class="card-header">Papel Digital</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>
+            Fomentar la adopción de facturación y recibos digitales en lugar de
+            imprimir documentos en papel.
+          </p>
+          <footer class="blockquote-footer">
+            Xuancito 7u7. <cite title="Source Title">Gerente</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="card mb-5 animado">
+      <div class="card-header">Uso de Energía Renovable</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>
+            Si es factible, la tienda puede considerar la transición a fuentes
+            de energía renovable para alimentar sus operaciones, como la energía
+            solar o eólica.
+          </p>
+          <footer class="blockquote-footer">
+            Xuancito 7u7. <cite title="Source Title">Gerente</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5 mb-4 estilo">
+    <p class="h2">Trabaja con Nosotros</p>
+  </div>
+
+  <p class="h4 text-center">
+    Revisa las oportunidades de trabajo que tenemos para ti y se parte de la
+    familia GamersMoviles
+  </p>
+
+  <div class="container pb-5 mt-4 efecto-contenedor-nosotros">
+    <div class="row">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card efecto-card">
+          <div class="card-body">
+            <h5 class="card-title">Puesto: Consultor</h5>
+            <p class="card-text">
+              <b>Funcionalidades:</b> responsable de atender a los clientes,
+              explicar sobre las marcas y orientar a los clientes en lo que
+              necesiten ayuda al escooger su equipo de celular
+            </p>
+            <a href="#" class="btn">Postularme</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card efecto-card">
+          <div class="card-body">
+            <h5 class="card-title">Puesto: Cajera</h5>
+            <p class="card-text">
+              <b>Funcionalidades:</b> ser la responsable de procesar las
+              transacciones de los clientes, cobrando por productos o servicios
+              y proporcionando un servicio al cliente eficiente y preciso.
+            </p>
+            <a href="#" class="btn">Postularme</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let animado = document.querySelectorAll(".animado");
+  function mostrarScroll() {
+    let scrollTop = document.documentElement.scrollTop;
+    for (var i = 0; i < animado.length; i++) {
+      let alturaAnimado = animado[i].offsetTop;
+      if (alturaAnimado - 350 < scrollTop) {
+        animado[i].style.opacity = 1;
+        animado[i].classList.add("mostrarArriba");
+      }
+    }
+  }
+
+  window.addEventListener(`scroll`, mostrarScroll);
+  // todo este codigo sirve para hacer el efecto de scroll y aparezcan las palabras
+</script>
