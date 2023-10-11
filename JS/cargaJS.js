@@ -21,6 +21,9 @@ $(document).ready(function () {
   $("#P6").click(function () {
     $("#Recarga_seccion_home").load("preguntas.html");
   });
+  $("#P7").click(function () {
+    $("#Recarga_seccion_home").load("productos.html");
+  });
 });
 
 // js para hacer que el navbar se vuelva invisible cuando hagas scroll y aparexca cuando subas el scroll

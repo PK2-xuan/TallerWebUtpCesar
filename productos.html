@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      /* Globales */
+      /* *::after,
+        *::before,
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        } */
+
+      /* body {
+          margin: 0 auto;
+          max-width: 1200px;
+          font-family: "Lato";
+          color: #333;
+        } */
+
+      .icon-cart {
+        width: 40px;
+        height: 40px;
+        stroke: #000;
+      }
+
+      .icon-cart:hover {
+        cursor: pointer;
+      }
+      /* 
+        img{
+          max-width: 100%;
+      } */
+
+      /* Header */
+      .header-product-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0 40px 0;
+        margin-top: 5rem;
+      }
+
+      .container-icon {
+        position: relative;
+      }
+
+      .count-products {
+        position: absolute;
+        top: 55%;
+        right: 0;
+
+        background-color: #000;
+        color: #fff;
+        width: 25px;
+        height: 25px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      #contador-productos {
+        font-size: 12px;
+      }
+
+      .container-cart-products {
+        position: absolute;
+        top: 50px;
+        right: 0;
+
+        background-color: #fff;
+        width: 400px;
+        z-index: 1;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+
+      .cart-product {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .info-cart-product {
+        display: flex;
+        justify-content: space-between;
+        flex: 0.8;
+      }
+
+      .titulo-producto-carrito {
+        font-size: 20px;
+      }
+
+      .precio-producto-carrito {
+        font-weight: 700;
+        font-size: 20px;
+        margin-left: 10px;
+      }
+
+      .cantidad-producto-carrito {
+        font-weight: 400;
+        font-size: 20px;
+      }
+
+      .icon-close {
+        width: 25px;
+        height: 25px;
+      }
+
+      .icon-close:hover {
+        stroke: red;
+        cursor: pointer;
+      }
+
+      .cart-total {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+      }
+
+      .cart-total h3 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .total-pagar {
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .hidden-cart {
+        display: none;
+      }
+
+      /* Main */
+      .container-items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .item {
+        border-radius: 10px;
+      }
+
+      .item:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+        transition: all 0.5s;
+      }
+
+      .item figure {
+        overflow: hidden;
+      }
+
+      .item:hover img {
+        transform: scale(1.2);
+      }
+
+      .info-product {
+        padding: 15px 30px;
+        line-height: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .price {
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .info-product button {
+        border: none;
+        background: none;
+        background-color: #000;
+        color: #fff;
+        padding: 15px 10px;
+        cursor: pointer;
+      }
+
+      .cart-empty {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <header class="header-product-info">
+      <h1>Productos</h1>
+
+      <div class="container-icon">
+        <div class="container-cart-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon-cart"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+            />
+          </svg>
+          <div class="count-products">
+            <span id="contador-productos">0</span>
+          </div>
+        </div>
+
+        <div class="container-cart-products hidden-cart">
+          <div class="row-product hidden">
+            <div class="cart-product">
+              <div class="info-cart-product">
+                <span class="cantidad-producto-carrito"></span>
+                <p class="titulo-producto-carrito"></p>
+                <span class="precio-producto-carrito"></span>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="icon-close"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div class="cart-total hidden">
+            <h3>Total:</h3>
+            <span class="total-pagar">0</span>
+            <button
+              class="btn btn-success"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#staticBackdrop"
+              aria-controls="staticBackdrop"
+            >
+              Comprar
+            </button>
+          </div>
+          <p class="cart-empty">El carrito está vacío</p>
+        </div>
+      </div>
+    </header>
+
+    <!--  -->
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-scroll="true"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      id="staticBackdrop"
+      aria-labelledby="staticBackdropLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+          Lista de Compra
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p></p>
+      </div>
+
+      <div id="datosPersonales" class="row mb-5 mx-3">
+        <h3>Datos personales</h3>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="nombre2">Nombre:</label>
+            <input
+              type="text"
+              id="nombre2"
+              name="nombre2"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="apellido2">Apellido:</label>
+            <input
+              type="text"
+              id="apellido2"
+              name="apellido2"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="dni2">DNI:</label>
+            <input
+              type="text"
+              id="dni2"
+              name="dni2"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="email2">Correo:</label>
+            <input
+              type="email"
+              id="email2"
+              name="email2"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="telefono2">Teléfono:</label>
+            <input
+              type="tel"
+              id="telefono2"
+              name="telefono2"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="fecha2">Fecha:</label>
+            <input
+              type="date"
+              id="fecha2"
+              name="fecha2"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <button id="siguienteDatosPersonales" class="btn btn-success" type="button">Siguiente</button>
+      </div>
+
+      <div id="formaDePago" class="row gy-3 mb-5 mx-3" style="display: none;">
+        <div class="row gy-3 mb-2">
+          <h3 style="text-align: center">Forma de Pago</h3>
+          <div class="col-md-6">
+            <label for="cc-name2" class="form-label">Nombre del titular</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cc-name2"
+              placeholder=""
+              required
+            />
+            <!-- <small class="text-muted"
+              >Nombre completo como se muestra en la tarjeta</small
+            > -->
+            <div class="invalid-feedback">
+              Se requiere el nombre en la tarjeta
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="cc-number2" class="form-label"
+              >N° de la tarjeta</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="cc-number2"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Se requiere número de tarjeta</div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-expiration2" class="form-label">Expiracion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cc-expiration2"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Fecha de vencimiento requerida</div>
+          </div>
+
+          <div class="col-md-3 mb-2">
+            <label for="cc-cvv2" class="form-label">CVV</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cc-cvv2"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Código de seguridad requerido</div>
+          </div>
+
+          <div class="col-md-5" style="margin-top: 2.4rem">
+            <div class="form-check">
+              <input
+                id="credit2"
+                name="paymentMethod2"
+                type="radio"
+                class="form-check-input"
+                checked
+                required
+              />
+              <label class="form-check-label" for="credit2" style="font-size: 12px;"
+                >T. Credito</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                id="debit2"
+                name="paymentMethod2"
+                type="radio"
+                class="form-check-input"
+                required
+              />
+              <label class="form-check-label" for="debit2" style="font-size: 12px;"
+                >T. Debito</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <p>Para finalizar la compra acepte los términos y condiciones</p>
+          <label>
+            <input type="checkbox" id="terminosYCondiciones2" />
+          </label>
+        </div>
+        <button id="comprar" class="btn btn-success" type="button" onclick="cerrarOffcanvas()">Comprar</button>
+        <!-- <button id="anteriorFormaDePago" class="btn btn-success" type="button">Anterior</button> -->
+      </div>
+    </div>
+
+    <!--  -->
+
+    <!-- imgs -->
+    <div id="product-container" class="container-items mb-5">
+      <!-- <div class="item">
+            <figure>
+            <img
+                src="https://www.notebookcheck.net/uploads/tx_nbc2/Honor8X__1_.jpg"
+                alt="producto"
+            />
+            </figure>
+            <div class="info-product">
+            <h2>Honor X8</h2>
+            <p class="price">$249.99</p>
+            <button class="btn-add-cart">Añadir al carrito</button>
+            <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+            >
+                Comprar
+            </button>
+            </div>
+       </div> -->
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="containerforcompra">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#step1"
+                      >Paso 1</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#step2"
+                      >Paso 2</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#step3"
+                      >Paso 3</a
+                    >
+                  </li>
+                </ul>
+
+                <div class="tab-content mt-2">
+                  <div
+                    id="step1"
+                    class="tab-pane active"
+                    style="text-align: center"
+                  >
+                    <h3>Informacion de la compra</h3>
+                    <img
+                      id="product-image"
+                      src=""
+                      alt="producto"
+                      class="w-50"
+                    />
+                    <div id="product-info">
+                      <h4>
+                        Nombre del producto: <br />
+                        <span
+                          id="product-name"
+                          style="font-weight: lighter"
+                        ></span>
+                      </h4>
+                      <p>
+                        Precio: <br />
+                        <span id="product-price"></span>
+                      </p>
+                    </div>
+
+                    <div class="positionButtonDisplay">
+                      <button
+                        class="btn btn-secondary"
+                        onclick="showNextStep('step2')"
+                      >
+                        Siguiente
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="step2" class="tab-pane" style="text-align: center">
+                    <h3>Datos personales</h3>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="nombre">Nombre:</label>
+                          <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="apellido">Apellido:</label>
+                          <input
+                            type="text"
+                            id="apellido"
+                            name="apellido"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="dni">DNI:</label>
+                          <input
+                            type="text"
+                            id="dni"
+                            name="dni"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Correo:</label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="telefono">Teléfono:</label>
+                          <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="fecha">Fecha:</label>
+                          <input
+                            type="date"
+                            id="fecha"
+                            name="fecha"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="positionButtonDisplay">
+                      <button
+                        class="btn btn-secondary"
+                        onclick="showNextStep('step1')"
+                      >
+                        Retroceder
+                      </button>
+
+                      <button
+                        class="btn btn-secondary"
+                        onclick="showNextStep('step3')"
+                      >
+                        Siguiente
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="step3" class="tab-pane">
+                    <h3 style="text-align: center">Forma de Pago</h3>
+
+                    <div class="row gy-3 mb-2">
+                      <div class="col-md-6">
+                        <label for="cc-name" class="form-label"
+                          >Nombre del titular</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cc-name"
+                          placeholder=""
+                          required
+                        />
+                        <small class="text-muted"
+                          >Nombre completo como se muestra en la tarjeta</small
+                        >
+                        <div class="invalid-feedback">
+                          Se requiere el nombre en la tarjeta
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="cc-number" class="form-label"
+                          >Numero de la tarjeta</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cc-number"
+                          placeholder=""
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Se requiere número de tarjeta
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <label for="cc-expiration" class="form-label"
+                          >Expiracion</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cc-expiration"
+                          placeholder=""
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Fecha de vencimiento requerida
+                        </div>
+                      </div>
+
+                      <div class="col-md-3 mb-2">
+                        <label for="cc-cvv" class="form-label">CVV</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cc-cvv"
+                          placeholder=""
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Código de seguridad requerido
+                        </div>
+                      </div>
+
+                      <div class="col-md-5" style="margin-top: 2.4rem">
+                        <div class="form-check">
+                          <input
+                            id="credit"
+                            name="paymentMethod"
+                            type="radio"
+                            class="form-check-input"
+                            checked
+                            required
+                          />
+                          <label class="form-check-label" for="credit"
+                            >Tarjeta de Credito</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            id="debit"
+                            name="paymentMethod"
+                            type="radio"
+                            class="form-check-input"
+                            required
+                          />
+                          <label class="form-check-label" for="debit"
+                            >Tarjeta de Debito</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="finalizarCompra" class="text-center mb-3">
+                      <p>
+                        Para finalizar la compra acepte los términos y
+                        condiciones
+                      </p>
+                      <label>
+                        <input type="checkbox" id="terminosYCondiciones" />
+                      </label>
+                    </div>
+
+                    <div
+                      class="positionButtonDisplay"
+                      style="text-align: center"
+                    >
+                      <button
+                        class="btn btn-secondary"
+                        onclick="showPreviousStep('step2')"
+                      >
+                        Retroceder
+                      </button>
+                      <button class="btn btn-secondary" onclick="showAlert()">
+                        Finalizar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="item">
+        <figure>
+          <img
+            src="https://th.bing.com/th/id/OIP.zHW6n5ngn98PCiyyd6wUvQHaHa?pid=ImgDet&rs=1"
+            alt="producto"
+          />
+        </figure>
+        <div class="info-product">
+          <h2>POCO M5s</h2>
+          <p class="price">$359.99</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img
+            src="https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/p60-pro/images/hero/huawei-p60-pro-kv.webp"
+            alt="producto"
+          />
+        </figure>
+        <div class="info-product">
+          <h2>Huawei P60 Pro</h2>
+          <p class="price">$349.99</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img
+            src="https://th.bing.com/th/id/OIP.AvwvUDD2YYf6yfIfqB1VOgHaFA?pid=ImgDet&rs=1"
+            alt="producto"
+          />
+        </figure>
+        <div class="info-product">
+          <h2>Honor Magic5 Pro</h2>
+          <p class="price">$219.99</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img
+            src="https://staticcontent.eways.ir/upload/ProductPictures/820430.jpg"
+            alt="producto"
+          />
+        </figure>
+        <div class="info-product">
+          <h2>Xiaomi Redmi 12C</h2>
+          <p class="price">$139.99</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img
+            src="https://www.pinoytechnoguide.com/wp-content/uploads/2022/08/Huawei-nova-Y90-large.jpg"
+            alt="producto"
+          />
+        </figure>
+        <div class="info-product">
+          <h2>Huawei Y90</h2>
+          <p class="price">$399.99</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div> -->
+    </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end mt-3">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+            >Previous</a
+          >
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <script src="JS/indexJS.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS (Asegúrate de usar la URL correcta) -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+
+    <!-- Bootstrap JS (Asegúrate de usar la URL correcta) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
